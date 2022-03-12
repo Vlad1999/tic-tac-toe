@@ -1,8 +1,8 @@
 # Tic Tac Toe
 
-An implementation of [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) in [ReactJS](https://reactjs.org/). For AI used the [Minimax](https://en.wikipedia.org/wiki/Minimax) Algorithm. [Play the game](https://tic-tac-toe-woad-nu.vercel.app)
+An implementation of [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) in ReactJS. For AI used the [Minimax](https://en.wikipedia.org/wiki/Minimax) Algorithm. [Play the game](https://tic-tac-toe-woad-nu.vercel.app)
 
-<img src="https://raw.githubusercontent.com/Vlad1999/tic-tac-toe/main/game.png" width="800" height="auto" alt="Tic-tac-toe game screenshots">
+<img src="https://raw.githubusercontent.com/Vlad1999/tic-tac-toe/main/game.png" width="700" height="auto" alt="Tic-tac-toe game screenshots">
 
 ## Introduction of Minimax
 
