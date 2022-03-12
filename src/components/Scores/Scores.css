@@ -1,0 +1,13 @@
+.scores {
+  display: flex;
+  color: #fff;
+  font-size: 26px;
+  justify-content: space-between;
+  margin-top: 25px;
+  font-weight: 100;
+}
+.scores div {
+  width: 150px;
+  text-align: center;
+  line-height: 35px;
+}
