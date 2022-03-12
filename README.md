@@ -2,6 +2,7 @@
 
 An implementation of [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) in [ReactJS](https://reactjs.org/). For AI used [Minimax Algorithm](https://en.wikipedia.org/wiki/Minimax). [Play the game]()
 
+<img src="https://raw.githubusercontent.com/Vlad1999/tic-tac-toe/main/game.png" width="800" height="auto" alt="Tic-tac-toe game screenshots">
 
 ## Introduction of Minimax
 
