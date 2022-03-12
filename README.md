@@ -6,7 +6,7 @@ An implementation of [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) ga
 
 ## Introduction of Minimax
 
-<p align="justify" width="800">Minimax is a decision rule used in artificial intelligence, decision theory, game theory, statistics, and philosophy for minimizing the possible loss for a worst case (maximum loss) scenario.Originally formulated for n-player zero-sum game theory. Applied in two player games, such as tic-tac-toe, chess, go etc. The algorithm works recursively, delivers an optimal move for the player. </p>
+<div width="800" align="justify">Minimax is a decision rule used in artificial intelligence, decision theory, game theory, statistics, and philosophy for minimizing the possible loss for a worst case (maximum loss) scenario.Originally formulated for n-player zero-sum game theory. Applied in two player games, such as tic-tac-toe, chess, go etc. The algorithm works recursively, delivers an optimal move for the player. </div>
 
 ## Development stack
 - Client: ReactJS
