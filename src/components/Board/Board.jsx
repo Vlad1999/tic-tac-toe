@@ -3,7 +3,7 @@ import Square from "../Square/Square";
 import "./Board.css";
 
 function Board({ setScores }) {
-  const nodes = new Map();
+  const [nodes, setNodes] = useState({});
   const [board, setBoard] = useState(Array(9).fill(""));
   const [winLine, setWinLine] = useState([]);
 
@@ -21,7 +21,11 @@ function Board({ setScores }) {
   };
 
   const handleClick = (id) => {
-    if (isTerminal(board).winner === "X" || isTerminal(board).winner === "O" || isFull(board)) {
+    if (
+      isTerminal(board).winner === "X" ||
+      isTerminal(board).winner === "O" ||
+      isFull(board)
+    ) {
       gameReset();
       return;
     }
@@ -32,10 +36,10 @@ function Board({ setScores }) {
     editedBoard[id] = "X";
 
     setBoard(editedBoard);
-    
+
     if (isTerminal(editedBoard).winner === "X") {
       console.log(isTerminal(editedBoard));
-      setWinLine(isTerminal(editedBoard).winLine)
+      setWinLine(isTerminal(editedBoard).winLine);
       setScores((prevState) => ({ ...prevState, x: prevState.x + 1 }));
       return;
     }
@@ -48,7 +52,7 @@ function Board({ setScores }) {
     setBoard(editedBoard);
 
     if (isTerminal(editedBoard).winner === "O") {
-      setWinLine(isTerminal(editedBoard).winLine)
+      setWinLine(isTerminal(editedBoard).winLine);
       setScores((prevState) => ({ ...prevState, o: prevState.o + 1 }));
       return;
     }
@@ -67,34 +71,33 @@ function Board({ setScores }) {
   };
 
   const isTerminal = (board) => {
-    
     if (isEmpty(board)) return false;
-    
+
     if (board[0] === board[1] && board[0] === board[2] && board[0]) {
-      return { winner: board[0], winLine: [0,1,2] };
+      return { winner: board[0], winLine: [0, 1, 2] };
     }
     if (board[3] === board[4] && board[3] === board[5] && board[3]) {
-      return { winner: board[3], winLine: [3,4,5] };
+      return { winner: board[3], winLine: [3, 4, 5] };
     }
     if (board[6] === board[7] && board[6] === board[8] && board[6]) {
-      return { winner: board[6], winLine: [6,7,8] };
+      return { winner: board[6], winLine: [6, 7, 8] };
     }
 
     if (board[0] === board[3] && board[0] === board[6] && board[0]) {
-      return { winner: board[0], winLine: [0,3,6] };
+      return { winner: board[0], winLine: [0, 3, 6] };
     }
     if (board[1] === board[4] && board[1] === board[7] && board[1]) {
-      return { winner: board[1], winLine: [1,4,7] };
+      return { winner: board[1], winLine: [1, 4, 7] };
     }
     if (board[2] === board[5] && board[2] === board[8] && board[2]) {
-      return { winner: board[2], winLine: [2,5,8] };
+      return { winner: board[2], winLine: [2, 5, 8] };
     }
 
     if (board[0] === board[4] && board[0] === board[8] && board[0]) {
-      return { winner: board[0], winLine: [0,4,8] };
+      return { winner: board[0], winLine: [0, 4, 8] };
     }
     if (board[2] === board[4] && board[2] === board[6] && board[2]) {
-      return { winner: board[2], winLine: [2,4,6] };
+      return { winner: board[2], winLine: [2, 4, 6] };
     }
 
     if (isFull(board)) {
@@ -105,16 +108,16 @@ function Board({ setScores }) {
   };
 
   const getBestMove = (newBoard, depth, isMax, callback = () => {}) => {
-    if (depth === 0) nodes.clear();
+    if (depth === 0) setNodes({});
 
-    if (isTerminal(newBoard) || depth === 5) {
+    if (isTerminal(newBoard) || depth === -1) {
       if (isTerminal(newBoard).winner === "X") {
-          return 100 - depth;
+        return 100 - depth;
       } else if (isTerminal(newBoard).winner === "O") {
-          return -100 + depth;
+        return -100 + depth;
       }
       return 0;
-     }
+    }
 
     if (isMax) {
       let best = -100;
@@ -141,21 +144,22 @@ function Board({ setScores }) {
         best = Math.min(best, score);
 
         if (depth === 0) {
-          const moves = nodes.has(score)
-            ? `${nodes.get(score)},${index}`
-            : index;
-          nodes.set(score, moves);
+          console.log(nodes);
+          const moves = nodes[score] ? `${nodes[score]},${index}` : index;
+          nodes[score] = moves;
         }
       });
       if (depth === 0) {
         let returnValue;
-        if (typeof nodes.get(best) == "string") {
-          const arr = nodes.get(best).split(",");
+
+        if (typeof nodes[best] === "string") {
+          const arr = nodes[best].split(",");
           const rand = Math.floor(Math.random() * arr.length);
           returnValue = arr[rand];
         } else {
-          returnValue = nodes.get(best);
+          returnValue = nodes[best];
         }
+
         callback(returnValue);
         return returnValue;
       }
