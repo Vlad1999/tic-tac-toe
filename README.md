@@ -2,7 +2,7 @@
 
 <p width="800" align="justify">An implementation of [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) game in ReactJS. For AI used the [Minimax](https://en.wikipedia.org/wiki/Minimax) Algorithm. Deployed on Vercel. [Play](https://tic-tac-toe-woad-nu.vercel.app)</p>
 
-<img src="https://raw.githubusercontent.com/Vlad1999/tic-tac-toe/main/game.png" width="800" height="auto" alt="Tic-tac-toe game screenshots">
+<img width="800" src="https://raw.githubusercontent.com/Vlad1999/tic-tac-toe/main/game.png" width="800" height="auto" alt="Tic-tac-toe game screenshots">
 
 ## Introduction of Minimax
 
